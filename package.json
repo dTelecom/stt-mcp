@@ -1,6 +1,6 @@
 {
   "name": "@dtelecom/stt-mcp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "MCP server for dTelecom real-time speech-to-text with x402 micropayments",
   "type": "module",
   "bin": {
@@ -23,7 +23,7 @@
   "author": "dTelecom <dev@dtelecom.org>",
   "license": "MIT",
   "dependencies": {
-    "@dtelecom/stt": "file:../stt-client-ts",
+    "@dtelecom/stt": "^0.2.0",
     "@modelcontextprotocol/sdk": "^1.26.0",
     "zod": "^3.25.0"
   },
