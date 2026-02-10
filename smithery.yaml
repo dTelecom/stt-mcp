@@ -1,0 +1,13 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    required:
+      - DTELECOM_PRIVATE_KEY
+    properties:
+      DTELECOM_PRIVATE_KEY:
+        type: string
+        description: "Private key (EVM hex or Solana base58) for USDC payments"
+  commandFunction:
+    |-
+    (config) => ({ command: 'npx', args: ['-y', '@dtelecom/stt-mcp'], env: { DTELECOM_PRIVATE_KEY: config.DTELECOM_PRIVATE_KEY } })
