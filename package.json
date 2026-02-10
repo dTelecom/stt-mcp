@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "description": "MCP server for dTelecom real-time speech-to-text with x402 micropayments",
   "type": "module",
+  "module": "./src/index.ts",
   "bin": {
     "dtelecom-stt-mcp": "./build/index.js"
   },
