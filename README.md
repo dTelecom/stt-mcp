@@ -22,7 +22,9 @@ npm install -g @dtelecom/stt-mcp
 
 ### 2. Get a wallet
 
-You need an Ethereum private key with USDC on Base mainnet. Any wallet works — MetaMask, etc.
+You need a private key with USDC. Either:
+- **EVM** (Base): Ethereum private key (0x hex) with USDC on Base — MetaMask, etc.
+- **Solana**: Solana private key (base58) with USDC on Solana — Phantom, Solflare, etc.
 
 ### 3. Configure your AI assistant
 
@@ -34,7 +36,7 @@ You need an Ethereum private key with USDC on Base mainnet. Any wallet works —
     "dtelecom-stt": {
       "command": "dtelecom-stt-mcp",
       "env": {
-        "DTELECOM_PRIVATE_KEY": "0xYOUR_PRIVATE_KEY"
+        "DTELECOM_PRIVATE_KEY": "YOUR_PRIVATE_KEY"
       }
     }
   }
@@ -50,7 +52,7 @@ You need an Ethereum private key with USDC on Base mainnet. Any wallet works —
       "command": "npx",
       "args": ["-y", "@dtelecom/stt-mcp"],
       "env": {
-        "DTELECOM_PRIVATE_KEY": "0xYOUR_PRIVATE_KEY"
+        "DTELECOM_PRIVATE_KEY": "YOUR_PRIVATE_KEY"
       }
     }
   }
@@ -65,7 +67,7 @@ You need an Ethereum private key with USDC on Base mainnet. Any wallet works —
     "command": "npx",
     "args": ["-y", "@dtelecom/stt-mcp"],
     "env": {
-      "DTELECOM_PRIVATE_KEY": "0xYOUR_PRIVATE_KEY"
+      "DTELECOM_PRIVATE_KEY": "YOUR_PRIVATE_KEY"
     }
   }
 }
@@ -83,14 +85,14 @@ ffmpeg -i input.mp3 -ar 16000 -ac 1 -acodec pcm_s16le output.wav
 
 | Variable | Required | Default | Description |
 |----------|----------|---------|-------------|
-| `DTELECOM_PRIVATE_KEY` | Yes | — | Ethereum private key (0x-prefixed) |
+| `DTELECOM_PRIVATE_KEY` | Yes | — | EVM key (0x hex) or Solana key (base58) |
 | `DTELECOM_STT_URL` | No | `https://x402stt.dtelecom.org` | STT service URL |
 
 ## Pricing
 
 - $0.005/min, billed per session
 - Minimum 5 minutes ($0.025)
-- Paid in USDC on Base mainnet via x402 protocol
+- Paid in USDC on Base or Solana via x402 protocol
 - No accounts, no API keys, no subscriptions
 
 ## Links

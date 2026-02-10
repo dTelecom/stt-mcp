@@ -8,14 +8,14 @@ import { STTClient } from "@dtelecom/stt";
 const PRIVATE_KEY = process.env.DTELECOM_PRIVATE_KEY;
 const SERVICE_URL = process.env.DTELECOM_STT_URL || "https://x402stt.dtelecom.org";
 
-function getClient(): STTClient {
+async function getClient(): Promise<STTClient> {
   if (!PRIVATE_KEY) {
     throw new Error(
       "DTELECOM_PRIVATE_KEY environment variable is required. " +
-        "Set it to your Ethereum private key (0x-prefixed hex string)."
+        "Set it to your EVM private key (0x hex) or Solana private key (base58)."
     );
   }
-  return new STTClient({ privateKey: PRIVATE_KEY, url: SERVICE_URL });
+  return STTClient.create({ privateKey: PRIVATE_KEY, url: SERVICE_URL });
 }
 
 const server = new McpServer({
@@ -42,7 +42,7 @@ server.tool(
   },
   async ({ path, language, minutes }) => {
     try {
-      const client = getClient();
+      const client = await getClient();
       const stream = await client
         .session({ minutes, language, autoExtend: true })
         .open();
@@ -87,7 +87,7 @@ server.tool(
   {},
   async () => {
     try {
-      const client = getClient();
+      const client = await getClient();
       const info = await client.pricing();
       return {
         content: [
@@ -123,7 +123,7 @@ server.tool(
   {},
   async () => {
     try {
-      const client = getClient();
+      const client = await getClient();
       const data = await client.health();
       return {
         content: [

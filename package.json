@@ -23,7 +23,7 @@
   "author": "dTelecom <dev@dtelecom.org>",
   "license": "MIT",
   "dependencies": {
-    "@dtelecom/stt": "^0.1.0",
+    "@dtelecom/stt": "file:../stt-client-ts",
     "@modelcontextprotocol/sdk": "^1.26.0",
     "zod": "^3.25.0"
   },
