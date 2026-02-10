@@ -1,0 +1,29 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.dtelecom/stt-mcp",
+  "description": "Real-time speech-to-text for AI assistants. Transcribe audio files with production-grade accuracy. Pay per use with USDC via x402 — no API keys needed.",
+  "repository": {
+    "url": "https://github.com/dTelecom/stt-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@dtelecom/stt-mcp",
+      "version": "0.2.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "description": "Private key for USDC payments (EVM hex or Solana base58)",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true,
+          "name": "DTELECOM_PRIVATE_KEY"
+        }
+      ]
+    }
+  ]
+}
